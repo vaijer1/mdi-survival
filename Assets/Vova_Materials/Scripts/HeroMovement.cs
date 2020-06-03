@@ -5,26 +5,51 @@ using UnityEngine;
 public class HeroMovement : MonoBehaviour
 {
     Rigidbody2D rb;
-    // Start is called before the first frame update
+    Animator anim;
+    private float HeroSpeed = 3f;
+    
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            jump();
+            Jump();
+        }
+        else if (Input.GetAxis("Horizontal") == 0)
+        {
+            anim.SetInteger("anim_state", 0);
+        }
+        else
+        {
+            Flip();
+            anim.SetInteger("anim_state", 1);
         }
     }
     void FixedUpdate()
     {
-        rb.velocity = new Vector2(Input.GetAxis("Horizontal") * 12f, rb.velocity.y);
+        rb.velocity = new Vector2(Input.GetAxis("Horizontal") * HeroSpeed, rb.velocity.y);
     }
-    void jump()
+    void Jump()
     {
-        rb.AddForce(transform.up * 14f, ForceMode2D.Impulse);
+        rb.AddForce(transform.up * 6f, ForceMode2D.Impulse);
+    }
+    void Flip()
+    {
+        if (Input.GetAxis("Horizontal") > 0)
+        {
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
+        }
+        if (Input.GetAxis("Horizontal") < 0)
+        {
+            transform.localRotation = Quaternion.Euler(0, 180, 0);
+        }
     }
 }
