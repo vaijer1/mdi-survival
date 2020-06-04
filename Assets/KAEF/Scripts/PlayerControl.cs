@@ -10,6 +10,7 @@ public class PlayerControl : MonoBehaviour
     float speed = 4f;
     float move;
     public float JumpForce;
+    private bool FaceR = true;
 
     Rigidbody2D rb;
     Animator animation;
@@ -32,14 +33,24 @@ public class PlayerControl : MonoBehaviour
 
     void FixedUpdate()
     {
-        move = Input.GetAxisRaw("Horizontal");
-        animation.SetInteger("Animation", Convert.ToInt32(move));
-        transform.Translate(transform.right * speed * move * Time.fixedDeltaTime);
+        rb.velocity = new Vector2(move * speed, rb.velocity.y);
+        if (FaceR && move < 0)
+        {
+            FaceR = !FaceR;
+            transform.Rotate(0f, 180f, 0f);
+        }
+        else if (!FaceR && move > 0)
+        {
+            FaceR = !FaceR;
+            transform.Rotate(0f, 180f, 0f);
+        }
+        animation.SetInteger("Speed", Convert.ToInt32(move));
     }
 
 
     private void Update()
     {
+        move = Input.GetAxisRaw("Horizontal");
         hp.text = health.ToString();
         isGrounded = Physics2D.OverlapCircle(fetPos.position, checkRadius, whatIsGround);
 
