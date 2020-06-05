@@ -25,7 +25,8 @@ public class PlayerControl : MonoBehaviour
     public Sprite FullL;
     public Sprite HalfL;
     public Sprite ZeroL;
-    public Text hp;
+    private int p;
+    private int pp;
     public GameObject panel;
 
 
@@ -57,7 +58,6 @@ public class PlayerControl : MonoBehaviour
     private void Update()
     {
         move = Input.GetAxisRaw("Horizontal");
-        hp.text = health.ToString();
         isGrounded = Physics2D.OverlapCircle(fetPos.position, checkRadius, whatIsGround);
 
         if (isGrounded == true && Input.GetKeyDown(KeyCode.Space))
@@ -66,32 +66,37 @@ public class PlayerControl : MonoBehaviour
         }
         if (health <= 0)
         {
+            lives[0].sprite = ZeroL;
             Destroy(gameObject);
             panel.SetActive(true);
         }
-        for (int i = 0; i < lives.Length; i++)
+        for (int i = 0; i < health; i++)
         {
-            if (i < health && i % 2 == 1)
+            if (i < 2)
             {
-                lives[i].sprite = FullL;
-            }
-            else if (i < health && i % 2 == 0)
-            {
-                lives[i].sprite = HalfL;
+                p = 0;
+                pp = 1;
             }
             else
             {
-                lives[i].sprite = ZeroL;
+                p = i / 2;
+                pp = p + 1;
             }
 
-            if (i < LNumber && i % 2 == 0)
+            if (i % 2 == 1)
             {
-                lives[i].enabled = true;
+                lives[p].sprite = FullL;
+                if ((pp < 5 && pp > 1) | health == 2) 
+                {
+                    lives[pp].sprite = ZeroL;
+                }
             }
             else
             {
-                lives[i].enabled = false;
+                lives[p].sprite = HalfL;
             }
+
+            lives[p].enabled = true;
 
         }
     }
