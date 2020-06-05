@@ -20,8 +20,14 @@ public class PlayerControl : MonoBehaviour
     public float checkRadius;
     public LayerMask whatIsGround;
     public float health;
+    private int LNumber = 10;
+    public Image[] lives;
+    public Sprite FullL;
+    public Sprite HalfL;
+    public Sprite ZeroL;
     public Text hp;
     public GameObject panel;
+
 
 
     void Start()
@@ -62,6 +68,31 @@ public class PlayerControl : MonoBehaviour
         {
             Destroy(gameObject);
             panel.SetActive(true);
+        }
+        for (int i = 0; i < lives.Length; i++)
+        {
+            if (i < health && i % 2 == 1)
+            {
+                lives[i].sprite = FullL;
+            }
+            else if (i < health && i % 2 == 0)
+            {
+                lives[i].sprite = HalfL;
+            }
+            else
+            {
+                lives[i].sprite = ZeroL;
+            }
+
+            if (i < LNumber && i % 2 == 0)
+            {
+                lives[i].enabled = true;
+            }
+            else
+            {
+                lives[i].enabled = false;
+            }
+
         }
     }
 
