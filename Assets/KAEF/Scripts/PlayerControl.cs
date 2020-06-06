@@ -72,7 +72,7 @@ public class PlayerControl : MonoBehaviour
             rb.velocity = Vector2.up * JumpForce;
             animation.SetBool("jump", true);
         }
-        if ((health <= 0) | (transform.position.y <= -4.1f))
+        if (health <= 0)
         {
             lives[0].sprite = ZeroL;
             Destroy(gameObject);
