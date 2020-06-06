@@ -19,5 +19,12 @@ public class TRAPLOL : MonoBehaviour
         }
 
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.name.Equals("DEADFlor"))
+        {
+            Destroy(gameObject);
+        }
+    }
 
 }

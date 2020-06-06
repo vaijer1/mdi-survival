@@ -28,5 +28,10 @@ public class TRAPLOLKill : MonoBehaviour
             player.TakeDamage(10);
         }
 
+        if (collision.gameObject.name.Equals("DEADFlor"))
+        {
+            Destroy(gameObject);
+        }
+
     }
 }
