@@ -3,7 +3,12 @@ guid: 5d51ede109db7214eab1c27828f29fbc
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - fetPos: {instanceID: 0}
+  - FullL: {fileID: 21300000, guid: 1b0fe9f3467388149be628b22f992b2c, type: 3}
+  - HalfL: {fileID: 21300000, guid: 0021b207aaec9a442a8ac450479879ce, type: 3}
+  - ZeroL: {fileID: 21300000, guid: d81a8423a37c8f8419056bf905bcc0a5, type: 3}
+  - panel: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

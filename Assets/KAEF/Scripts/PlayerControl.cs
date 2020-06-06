@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
@@ -51,7 +51,10 @@ public class PlayerControl : MonoBehaviour
             FaceR = !FaceR;
             transform.Rotate(0f, 180f, 0f);
         }
-        animation.SetInteger("Speed", Convert.ToInt32(move));
+        if (!Input.GetKeyDown(KeyCode.Space))
+        {
+            animation.SetInteger("Speed", Convert.ToInt32(move));
+        }
     }
 
 
@@ -59,10 +62,15 @@ public class PlayerControl : MonoBehaviour
     {
         move = Input.GetAxisRaw("Horizontal");
         isGrounded = Physics2D.OverlapCircle(fetPos.position, checkRadius, whatIsGround);
-
+        
+        if (isGrounded == true && !Input.GetKeyDown(KeyCode.Space))
+        {
+            animation.SetBool("jump", false);
+        }
         if (isGrounded == true && Input.GetKeyDown(KeyCode.Space))
         {
             rb.velocity = Vector2.up * JumpForce;
+            animation.SetBool("jump", true);
         }
         if (health <= 0)
         {
@@ -106,11 +114,4 @@ public class PlayerControl : MonoBehaviour
         health -= damage;
     }
 
-
-    void Jump()
-    {
-        rb.AddForce(transform.up * 5, ForceMode2D.Impulse);
-        if (Input.GetKeyDown(KeyCode.Space))
-            Jump();
-    }
 }
