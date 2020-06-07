@@ -1,13 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HeroMovement : MonoBehaviour
 {
     Rigidbody2D rb;
     Animator anim;
-    private float HeroSpeed = 3f;
-    
+    float move;
+    public float HeroSpeed = 4f;
+    public float jumpSpeed = 7f;
+    public bool Ground = false;
+    public Transform fetPosition;
+    public float fetPosRadius = 0f;
+    public LayerMask whatGround;
 
 
     void Start()
@@ -16,31 +22,35 @@ public class HeroMovement : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Jump();
-        }
-        else if (Input.GetAxis("Horizontal") == 0)
-        {
-            anim.SetInteger("Speed", 0);
-        }
-        else
-        {
-            Flip();
-            anim.SetInteger("Speed", 1);
-        }
-    }
     void FixedUpdate()
     {
         rb.velocity = new Vector2(Input.GetAxis("Horizontal") * HeroSpeed, rb.velocity.y);
+        Flip();
+        if (!Input.GetKeyDown(KeyCode.Space))
+        {
+            anim.SetInteger("Speed", Mathf.RoundToInt(move));
+            
+        }
+    }
+    void Update()
+    {
+        move = Input.GetAxis("Horizontal");
+        Ground = Physics2D.OverlapCircle(fetPosition.position, fetPosRadius, whatGround);
+        if (!Input.GetKeyDown(KeyCode.Space) && Ground == true)
+        {
+            anim.SetBool("jump", false);
+            
+        }
+        if (Input.GetKeyDown(KeyCode.Space) && Ground == true)
+        {
+            Jump();
+            anim.SetBool("jump", true);
+        }
+
     }
     void Jump()
     {
-        rb.AddForce(transform.up * 6f, ForceMode2D.Impulse);
-        anim.SetBool("jump", true);
+        rb.AddForce(transform.up * jumpSpeed, ForceMode2D.Impulse);
     }
     void Flip()
     {

@@ -11,9 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Calculus1.unity
     guid: 91152459913760644a37d6c2c4a211f2
-  - enabled: 1
-    path: Assets/Scenes/Calculus2.unity
-    guid: 94e228e03284cb34ca43af31fa969018
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/EngLvl1.unity
     guid: 94b332123cc4d4d9f8eb0b7b93e8ea91
