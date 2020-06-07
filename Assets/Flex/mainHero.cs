@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class mainHero : MonoBehaviour
 {
@@ -9,9 +10,11 @@ public class mainHero : MonoBehaviour
     bool facingRight = true;
     Rigidbody2D physics;
     bool onGround = true;
+    bool onTrap = false;
     public Transform groundCheck;
     float groundRadius = 0.2f;
     public LayerMask whatIsGround;
+    public LayerMask whatIsTrap;
 
     void Start()
     {
@@ -32,16 +35,16 @@ public class mainHero : MonoBehaviour
         Flip(x);
         physics.MovePosition(physics.position + Vector2.right * x * speed * Time.deltaTime);
         onGround = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
+        onTrap = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsTrap);
+        if (onTrap)
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 
     void Flip(float moveX)
     {
-        if (moveX < 0 && facingRight)
-        {
-            transform.Rotate(0f, 180f, 0f);
-            facingRight = !facingRight;
-        }
-        else if (moveX > 0 && !facingRight)
+        if (moveX < 0 && facingRight || moveX > 0 && !facingRight)
         {
             transform.Rotate(0f, 180f, 0f);
             facingRight = !facingRight;
