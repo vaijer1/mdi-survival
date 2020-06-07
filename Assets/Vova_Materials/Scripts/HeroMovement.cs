@@ -25,12 +25,12 @@ public class HeroMovement : MonoBehaviour
         }
         else if (Input.GetAxis("Horizontal") == 0)
         {
-            anim.SetInteger("anim_state", 0);
+            anim.SetInteger("Speed", 0);
         }
         else
         {
             Flip();
-            anim.SetInteger("anim_state", 1);
+            anim.SetInteger("Speed", 1);
         }
     }
     void FixedUpdate()
@@ -40,6 +40,7 @@ public class HeroMovement : MonoBehaviour
     void Jump()
     {
         rb.AddForce(transform.up * 6f, ForceMode2D.Impulse);
+        anim.SetBool("jump", true);
     }
     void Flip()
     {

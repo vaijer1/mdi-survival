@@ -5230,7 +5230,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_WarningMessage: 
+  m_WarningMessage:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -5577,17 +5577,11 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-<<<<<<< HEAD
   m_WarningMessage:
-=======
-  m_WarningMessage: 
->>>>>>> 981f7c829e9216bdba837353a4d0c32de17b11b5
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!212 &1314744785
-<<<<<<< HEAD
-=======
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5662,8 +5656,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3e1e6666dbcc810448f089cbfc5e3cc6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
 --- !u!70 &1314744788
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -5875,8 +5869,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a596f43a9d2dfe3419c004a25cfc81af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   speed: 2
   distance: 2
   GroundChecking: {fileID: 1683740718}
@@ -8277,7 +8271,6 @@ GameObject:
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!212 &1973993471
->>>>>>> 981f7c829e9216bdba837353a4d0c32de17b11b5
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8347,15 +8340,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
-  m_GameObject: {fileID: 1314744783}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e1e6666dbcc810448f089cbfc5e3cc6, type: 3}
-  m_Name:
-  m_EditorClassIdentifier:
---- !u!61 &1314744788
-=======
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1988991885}
@@ -8369,7 +8353,6 @@ GameObject:
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!61 &1988991883
->>>>>>> 981f7c829e9216bdba837353a4d0c32de17b11b5
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8681,8 +8664,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1bfd17294383d6b42a94ccb5a32a913c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   stopping: 1.5
   view: {x: 2, y: 1}
   Left: 0
