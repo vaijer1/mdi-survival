@@ -29,6 +29,6 @@ public class Skeleton : MonoBehaviour
     void OnTriggerEnter2D(Collider2D thing)
     {
         if (thing.CompareTag("Player"))
-            thing.GetComponent<MainHero>().Damage(0.5f);
+            thing.GetComponent<MainHero>().Damage(10);
     }
 }
