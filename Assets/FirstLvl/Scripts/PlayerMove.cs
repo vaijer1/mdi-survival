@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -71,9 +70,5 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D flag)
-    {
-        if (flag.gameObject.CompareTag("Finish"))
-            SceneManager.LoadScene(3);
-    }
+
 }

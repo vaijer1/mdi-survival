@@ -483,6 +483,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acefb9484d45545229c63f116dad083d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startAnim: {fileID: 2055707618}
+  dm: {fileID: 946376840}
 --- !u!58 &54528624
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -822,6 +824,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3e37b98b2dfc4cadb5fa15022ebb2d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startAnim: {fileID: 1971058145}
+  dm: {fileID: 946376840}
 --- !u!212 &271794802
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -869,7 +873,7 @@ SpriteRenderer:
   m_Size: {x: 0.1, y: 0.21}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &271794803
@@ -1860,6 +1864,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab23e7ddbe88b4f599e3a105e8da2b03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueText: {fileID: 1514082960}
+  nameText: {fileID: 255686956}
+  BoxAnim: {fileID: 889423274}
+  startAnim: {fileID: 1971058145}
 --- !u!4 &946376841
 Transform:
   m_ObjectHideFlags: 0
@@ -2178,6 +2186,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3e37b98b2dfc4cadb5fa15022ebb2d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startAnim: {fileID: 0}
+  dm: {fileID: 0}
 --- !u!1 &1167745548
 GameObject:
   m_ObjectHideFlags: 0
@@ -2250,10 +2260,9 @@ GameObject:
   - component: {fileID: 1307655224}
   - component: {fileID: 1307655223}
   - component: {fileID: 1307655225}
-  - component: {fileID: 1307655226}
   m_Layer: 0
   m_Name: FlagStock
-  m_TagString: Finish
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2335,32 +2344,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parallaxFactor: 0
---- !u!61 &1307655226
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1307655222}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.1072302, y: -0.041063786}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.56, y: 1.44}
-    newSize: {x: 2.56, y: 1.44}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.117486745, y: 1.146687}
-  m_EdgeRadius: 0
 --- !u!1 &1333730353
 GameObject:
   m_ObjectHideFlags: 0
@@ -3654,6 +3637,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a0f9e435e3814119973ebc98793ba05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogue:
+    name: Curator
+    sentences:
+    - Hi, Newbie!
+    - I am your curator.
+    - This is your first year in HSE. Congrats!
+    - Your first task is Safe Living Basics project.
+    - Good luck and have fun!
 --- !u!114 &1971058144
 MonoBehaviour:
   m_ObjectHideFlags: 0
