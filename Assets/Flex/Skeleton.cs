@@ -1,9 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Security.Cryptography;
 using UnityEngine;
 
-public class Ghost : MonoBehaviour
+public class Skeleton : MonoBehaviour
 {
     public float speed = 0.5f;
     public float rayDistance = 4f;
@@ -11,8 +10,8 @@ public class Ghost : MonoBehaviour
     public Transform platformCheck;
 
     void Update()
-    {   
-        transform.Translate(Vector2.left * speed * Time.deltaTime);
+    {
+        transform.Translate(Vector2.right * speed * Time.deltaTime);
         RaycastHit2D platform = Physics2D.Raycast(platformCheck.position, Vector2.down, rayDistance);
         if (!platform.collider)
         {
@@ -20,7 +19,7 @@ public class Ghost : MonoBehaviour
         }
     }
 
-    public void Damage (int damage)
+    public void Damage(int damage)
     {
         hp -= damage;
         if (hp == 0)

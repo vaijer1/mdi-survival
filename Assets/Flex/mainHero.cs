@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class mainHero : MonoBehaviour
+public class MainHero : MonoBehaviour
 {
     public float speed = 10f;
     public float height = 4500f;
+    public float hp = 10;
     bool facingRight = true;
     Rigidbody2D physics;
     bool onGround = true;
@@ -37,9 +38,7 @@ public class mainHero : MonoBehaviour
         onGround = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
         onTrap = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsTrap);
         if (onTrap)
-        {
-            SceneManager.LoadScene(0);
-        }
+            Damage(hp);
     }
 
     void Flip(float moveX)
@@ -49,5 +48,12 @@ public class mainHero : MonoBehaviour
             transform.Rotate(0f, 180f, 0f);
             facingRight = !facingRight;
         }
+    }
+
+    public void Damage (float damage)
+    {
+        hp -= damage;
+        if (hp == 0)
+            SceneManager.LoadScene(0);
     }
 }

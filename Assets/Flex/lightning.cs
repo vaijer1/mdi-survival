@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Net.Sockets;
 using UnityEngine;
 
-public class lightning : MonoBehaviour
+public class Lightning : MonoBehaviour
 {
     public float speed = 20f;
     Rigidbody2D physics;
@@ -15,12 +15,21 @@ public class lightning : MonoBehaviour
         physics.velocity = transform.right * speed;
     }
 
-    void OnTriggerEnter2D (Collider2D thing)
+    void OnCollisionEnter2D(Collision2D thing)
     {
         Destroy(gameObject);
-        if (thing.CompareTag("Enemy"))
+    }
+
+    void OnTriggerEnter2D(Collider2D thing)
+    {
+        Destroy(gameObject);
+        if (thing.CompareTag("EnemyG"))
         {
-            Destroy(thing.gameObject);
+            thing.GetComponent<Ghost>().Damage(1);
+        }
+        if (thing.CompareTag("EnemyS"))
+        {
+            thing.GetComponent<Skeleton>().Damage(1);
         }
     }
 }

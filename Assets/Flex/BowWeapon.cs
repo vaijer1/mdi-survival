@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BrainWeapon : MonoBehaviour
+public class BowWeapon : MonoBehaviour
 {
-    public Transform firePoint;
-    public GameObject lightningPrefab;
+    public Transform firePoint1;
+    public GameObject clockPrefab;
 
     void Update()
     {
@@ -17,6 +17,6 @@ public class BrainWeapon : MonoBehaviour
 
     void Shoot()
     {
-        Instantiate(lightningPrefab, firePoint.position, firePoint.rotation);
+        Instantiate(clockPrefab, firePoint1.position, firePoint1.rotation);
     }
 }
